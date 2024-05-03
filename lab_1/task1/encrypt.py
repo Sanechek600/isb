@@ -1,15 +1,18 @@
 import json
 import os
 
-from typing import Dict, Any
+from typing import Dict
 from enum import Enum
+
 
 ALPH_LOWER = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
 ALPH_UPPER = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
 
+
 class Mode(Enum):
     ENCRYPT = 1
     DECRYPT = 2
+
 
 def generate_key(shift: int, filename: str) -> Dict[str, str]:
     """

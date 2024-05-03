@@ -1,0 +1,5 @@
+{
+    "text_file": "lab_1/task2/encrypted_text.txt",
+    "output_file": "lab_1/task2/decrypted_text.txt",
+    "dictionary_file": "lab_1/task2/key.json"
+}
