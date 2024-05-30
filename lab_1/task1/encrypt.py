@@ -14,6 +14,16 @@ class Mode(Enum):
     DECRYPT = 2
 
 
+def save_key(filename: str, key: dict) -> None:
+    with open(filename, 'w', encoding='utf-8') as file:
+        json.dump(key, file, ensure_ascii=False)
+
+
+def save_text(filename: str, text: str) -> None:
+    with open(filename, 'w', encoding='utf-8') as f:
+        f.write(text)
+
+
 def generate_key(shift: int, filename: str) -> Dict[str, str]:
     """
     Creates a .json file with a generated key
@@ -29,9 +39,9 @@ def generate_key(shift: int, filename: str) -> Dict[str, str]:
     shifted_upper = ALPH_UPPER[shift % len(ALPH_UPPER):] + ALPH_UPPER[:shift % len(ALPH_UPPER)]
     key = dict(zip(ALPH_LOWER, shifted_lower)) | dict(zip(ALPH_UPPER, shifted_upper))
 
-    with open(filename, 'w', encoding='utf-8') as file:
-        json.dump(key, file, ensure_ascii=False)
+    save_key(filename, key)
     return key
+
 
 def process(in_file: str, out_file: str, shift: int, key_file: str, mode: Mode) -> None:
     """
@@ -63,8 +73,8 @@ def process(in_file: str, out_file: str, shift: int, key_file: str, mode: Mode) 
             reversed_key = {v: k for k, v in key.items()} 
             processed_text = ''.join(reversed_key.get(char, char) if char.isalpha() else char for char in text)
 
-    with open(out_file, 'w', encoding='utf-8') as f:
-        f.write(processed_text)
+    save_text(out_file, processed_text)
+
 
 if __name__ == '__main__':
     try:

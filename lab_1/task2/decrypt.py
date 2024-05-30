@@ -1,5 +1,11 @@
 import json
 import os
+from lab_1.task1.encrypt import save_text
+
+
+def load_settings(path: str) -> any:
+    with open(path, 'r', encoding='utf-8') as json_file:
+        return json.load(json_file)
 
 
 def decrypt_text(input_file, key_file, output_file) -> None:
@@ -14,8 +20,7 @@ def decrypt_text(input_file, key_file, output_file) -> None:
     """
 
     try:
-        with open(key_file, 'r', encoding='utf-8') as json_file:
-            key = json.load(json_file)
+        key = load_settings(key_file)
 
         decrypted_text = ""
         key = {u: v for v, u in key.items()}
@@ -26,8 +31,7 @@ def decrypt_text(input_file, key_file, output_file) -> None:
                 decrypted_char = key.get(char, char)
                 decrypted_text += decrypted_char
 
-        with open(output_file, 'w', encoding='utf-8') as output:
-            output.write(decrypted_text)
+        save_text(output_file, decrypted_text)
 
         print("Decrypted text saved to: ", output_file)
 
@@ -39,8 +43,7 @@ def decrypt_text(input_file, key_file, output_file) -> None:
 
 if __name__ == '__main__':
     try:
-        with open(os.path.join("lab_1","task2","settings.json"), 'r', encoding='utf-8') as json_file:
-            config = json.load(json_file)
+        config = load_settings(os.path.join("lab_1","task2","settings.json"))
         decrypt_text(config["text_file"], config["dictionary_file"], config["output_file"])
 
     except FileNotFoundError:
