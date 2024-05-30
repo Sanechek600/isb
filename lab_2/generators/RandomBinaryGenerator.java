@@ -11,7 +11,7 @@ public class RandomBinaryGenerator {
      * @param args Command-line arguments (not used)
      */
     public static void main(String[] args) {
-        int size = 10;
+        int size = 128;
         String randomBinarySequence = generateRandomBinarySequence(size);
         System.out.println("Random binary sequence: " + randomBinarySequence);
     }
