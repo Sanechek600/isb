@@ -1,0 +1,10 @@
+{
+    "operation": "decrypt_text",
+    "encrypted_text_path": "D:/Study/isb/lab_3/texts/encrypted_text_file.txt",
+    "decrypted_text_path": "D:/Study/isb/lab_3/texts/decrypted_text_file.txt",
+    "public_key_path": "D:/Study/isb/lab_3/keys/public_key.pem",
+    "private_key_path": "D:/Study/isb/lab_3/keys/private_key.pem",
+    "encrypted_chacha_key_path": "D:/Study/isb/lab_3/keys/encrypted_chacha_key.txt",
+    "chacha_nonce_path": "D:/Study/isb/lab_3/keys/chacha_nonce.txt",
+    "text_path": "D:/Study/isb/lab_3/texts/input_text.txt"
+}
