@@ -36,7 +36,7 @@ class SymmEnc:
             logging.error(f"Failed to generate key: {e}")
     
 
-    def encrypt_text(self, key_nonce: tuple, encrypted_text_path: str, text: str) -> None:
+    def encrypt_text(self, key_nonce: tuple, encrypted_text_path: str, text: bytes) -> None:
         """
         Encrypts the given text using the symmetric key and saves the resulting text to a file.
 
@@ -48,7 +48,7 @@ class SymmEnc:
         try:
             cipher = Cipher(algorithms.ChaCha20(key_nonce[0], key_nonce[1]), mode=None)
             encryptor = cipher.encryptor()
-            ciphertext = encryptor.update(text) + encryptor.finalize()
+            ciphertext = key_nonce[1] + encryptor.update(text) + encryptor.finalize()
 
             HelpFunc.write_to_file(encrypted_text_path, ciphertext[16:])
         except Exception as e:

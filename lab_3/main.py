@@ -14,7 +14,7 @@ logging.basicConfig(level=logging.INFO)
 
 
 def main(operation):
-    config_path = "D:\\Study\\isb\\lab_3\\settings.json"
+    config_path = "D:\\Study\\OSB\\isb\\lab_3\\settings.json"
     try:
         with open(config_path, "r") as file:
             config = json.load(file)
