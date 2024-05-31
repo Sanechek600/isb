@@ -23,6 +23,8 @@ def count_and_calculate_probability(text):
     for char, count in sorted_char_count:
         probability = probabilities[char]
         print(f"{repr(char)}\t\t{count}\t\t{probability:.4f}")
+        
+count_and_calculate_probability(input_text)
 
 def replace_char(input_text, old_char, new_char):
 # Преобразование строки в список символов

@@ -3,5 +3,5 @@
     "encrypted_file": "lab_1/task1/encrypted_text.txt",
     "decrypted_file": "lab_1/task1/decrypted_text.txt",
     "key": "lab_1/task1/key.json",
-    "shift": 5
+    "shift": 32
 }
